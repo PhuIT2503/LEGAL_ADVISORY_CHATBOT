@@ -1,0 +1,32 @@
+version: "3.1"
+
+intents:
+  - greet
+  - goodbye
+  - ready_to_ask
+  - ask_law
+  - out_of_scope
+
+responses:
+  utter_greet:
+    - text: "Xin chào, tôi là trợ lý pháp luật. Bạn muốn hỏi gì?"
+    - text: "Chào bạn! Tôi có thể hỗ trợ bạn về vấn đề pháp luật nào?"
+    - text: "Xin chào, bạn đang quan tâm đến quy định pháp luật nào?"
+
+  utter_goodbye:
+    - text: "Tạm biệt, chúc bạn một ngày tốt lành!"
+    - text: "Hẹn gặp lại bạn sau nhé!"
+    - text: "Cảm ơn bạn đã trao đổi, chúc bạn may mắn!"
+
+  utter_ready:
+    - text: "Tôi đã sẵn sàng, bạn hãy đặt câu hỏi pháp luật nhé."
+    - text: "Bạn có thể đặt câu hỏi pháp luật ngay bây giờ."
+    - text: "Sẵn sàng hỗ trợ bạn. Bạn muốn hỏi gì về pháp luật?"
+
+  utter_out_of_scope:
+    - text: "Xin lỗi, tôi chỉ có thể tư vấn các vấn đề liên quan đến pháp luật."
+    - text: "Tôi chỉ hỗ trợ các câu hỏi về pháp luật. Bạn vui lòng đặt câu hỏi liên quan nhé."
+    - text: "Rất tiếc, tôi không thể trả lời câu hỏi này. Tôi chỉ tư vấn pháp luật."
+
+actions:
+  - action_query_rag

@@ -1,0 +1,11 @@
+__pycache__/
+.rasa/
+.env
+.vscode/
+data_of_rasa/
+database/
+results_intent_of_rasa/
+models/
+tests/
+*.pyc
+*.pyo

@@ -1,0 +1,13 @@
+rasa>=3.0.0
+rasa-sdk>=3.0.0
+sqlalchemy<2.0
+numpy
+pandas
+torch
+transformers
+sentence-transformers
+faiss-cpu
+google-generativeai
+python-dotenv
+tqdm
+sanic-cors

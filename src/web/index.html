@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+  <meta charset="UTF-8">
+  <title>Chatbot Pháp luật</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <div class="chat-container">
+    <div class="chat-header">💬 Chatbot Pháp luật</div>
+    <div class="chat-box" id="chat-box"></div>
+    <div class="chat-input">
+      <input type="text" id="user-input" placeholder="Nhập tin nhắn..." />
+      <button id="send-btn">Gửi</button>
+    </div>
+  </div>
+
+  <script>
+    const chatBox = document.getElementById("chat-box");
+    const input = document.getElementById("user-input");
+    const sendBtn = document.getElementById("send-btn");
+
+    function addMessage(text, sender="user") {
+      const msg = document.createElement("div");
+      msg.classList.add("message", sender);
+
+      if (sender === "bot") {
+        let lines = text.split("\n");
+        lines.forEach(line => {
+          if (line.trim() !== "") {
+            let p = document.createElement("div");
+            p.classList.add("bot-line");
+            p.innerHTML = line;
+            msg.appendChild(p);
+          }
+        });
+      } else {
+        msg.innerText = text;
+      }
+
+      chatBox.appendChild(msg);
+      chatBox.scrollTop = chatBox.scrollHeight;
+    }
+
+    function showTyping() {
+      const typing = document.createElement("div");
+      typing.classList.add("message", "bot", "typing");
+      typing.innerHTML = `Đang suy nghĩ...`;
+      typing.setAttribute("id", "typing");
+      chatBox.appendChild(typing);
+      chatBox.scrollTop = chatBox.scrollHeight;
+    }
+
+    function removeTyping() {
+      const typing = document.getElementById("typing");
+      if (typing) typing.remove();
+    }
+
+    async function sendMessageToRasa(message) {
+      showTyping();
+      try {
+        const response = await fetch("http://localhost:5005/webhooks/rest/webhook", {
+          method: "POST",
+          headers: { "Content-Type": "application/json" },
+          body: JSON.stringify({ sender: "user", message: message })
+        });
+
+        const data = await response.json();
+        removeTyping();
+
+        if (data && data.length > 0) {
+          data.forEach(item => {
+            if (item.text) {
+              addMessage(item.text, "bot");
+            }
+          });
+        } else {
+          addMessage("Không tìm thấy câu trả lời phù hợp.", "bot");
+        }
+      } catch (error) {
+        removeTyping();
+        addMessage("Lỗi kết nối server.", "bot");
+      }
+    }
+
+    sendBtn.addEventListener("click", () => {
+      const text = input.value.trim();
+      if (text) {
+        addMessage(text, "user");
+        input.value = "";
+        sendMessageToRasa(text);
+      }
+    });
+
+    input.addEventListener("keypress", e => {
+      if (e.key === "Enter") sendBtn.click();
+    });
+  </script>
+</body>
+</html>
