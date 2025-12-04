@@ -75,6 +75,7 @@ Chat widget HTML/CSS/JS kết nối qua REST API để giao tiếp giữa giao d
 ------------------------------------------------------------------------
 
 ## Kết quả đánh giá (Evaluation)
+-   Mô hình được đánh giá trên dữ liệu test gồm 737 câu hỏi được thu thập từ các câu hỏi trên Thư Viện Pháp Luật.
 -   Embedding Model: **BAAI/bge-m3 (Fine-tuned)**
 -   Re-ranking cải thiện mạnh mẽ **MRR@5**
 -   Notebook đánh giá tại: `src/notebook/BGE_M3_Evaluation.ipynb`
