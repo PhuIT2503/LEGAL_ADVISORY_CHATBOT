@@ -80,6 +80,13 @@ Chat widget HTML/CSS/JS kết nối qua REST API để giao tiếp giữa giao d
 -   Notebook đánh giá tại: `src/notebook/BGE_M3_Evaluation.ipynb`
 - **BGE-M3 (Fine-Tuned):** MRR@5 = 0.35, nDCG@5 = 0.26
 - **BGE-M3 (Fine-Tuned) + ReRank:** MRR@5 = 0.39, nDCG@5 = 0.32
+> MRR:
+> Đo xem vị trí của câu trả lời đúng xuất hiện sớm đến mức nào trong danh sách kết quả.
+> Nếu câu trả lời đúng nằm ở vị trí 1 thì điểm = 1, vị trí 2 thì 1/2, vị trí 5 thì 1/5.
+> MRR cao nghĩa là hệ thống đặt câu trả lời đúng lên trên đầu tốt hơn.
+> nDCG:
+> Đo chất lượng xếp hạng toàn bộ danh sách, không chỉ đúng hoặc sai.
+> Phạt nặng các câu trả lời đúng nhưng bị xếp quá sâu.
 ------------------------------------------------------------------------
 
 ## Liên hệ
