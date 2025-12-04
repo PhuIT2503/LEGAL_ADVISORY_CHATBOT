@@ -62,7 +62,7 @@ Chat widget HTML/CSS/JS kết nối qua REST API để giao tiếp giữa giao d
 
     LEGAL_ADVISORY_CHATBOT/
     ├── database/                # Chứa file FAISS index và SQLite DB
-    ├── models/                  # Rasa models đã train
+    ├── models/                  # Rasa models đã train và model BGE-M3 sau khi fine-tuned
     ├── src/
     │   ├── notebook/            # Fine-tune & Evaluate Model BGE
     │   ├── rag/                 # RAG Pipeline (query_rag.py)
