@@ -23,7 +23,7 @@ Search (BGE-M3) và Re-ranking, sau đó tổng hợp câu trả lời tự nhi�
 
 Các văn bản luật được sử dụng trong dự án được thu thập từ **Văn Bản Pháp luật Việt Nam**:  
 
-- Website chính thức: [https://http://vbpl.vn/](https://http://vbpl.vn/)  
+- Website chính thức: [https://vbpl.vn/](https:////vbpl.vn/)  
 - Bao gồm các loại văn bản: **Luật, Nghị định, Thông tư, Quyết định, Văn bản hướng dẫn khác**  
 - Dữ liệu được xử lý và lưu trữ trong SQLite + FAISS để phục vụ RAG Pipeline 
   > Trước đây dự án sử dụng **Qdrant**, nhưng do Qdrant đã hết lưu trữ miễn phí nên đã chuyển sang **FAISS** 
